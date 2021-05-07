@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es-cl">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Juan Sepulveda">
+    <title>Asistente Cetoacidosis Diabetica</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <h1>Asistente para Cetoacidosis Diabética Pediátrica</h1>
+    </header>
+    <section class="inicio">
+        <div id="inicio">
+            <h2>Introducción</h2>
+            <p>Este es un proyecto personal de desarrollo de una aplicación calculadora basada en las guías GES de Diabetes Mellitus tipo 1 del Ministerio de Salud de Chile.</p>
+            <p>Se encuentra en fase de desarrollo, por lo que no se recomienda su uso como aplicación clínica.</p>
+            <p>Las indicaciones en pacientes que presentan una Cetoacidosis diabetica deben ser prescritas por un médico, y revisadas por el equipo de enfermería para garantizar la seguridad de la atención y manejo del paciente.</p>    
+        </div>
+    </section>
+    <section class="calculos">
+        <form action="">
+            <label for="nombre">Nombre:</label>
+            <input type="text" name="nombre" id="nombrepac" size="60" placeholder="ej: Jose Perez"><br>
+            <label for="edad">Edad:</label>
+            <input class="numero" type="number" name="edad" id="edadpac"  min="0" max="18" placeholder="ej: 3"> años.<br>
+            <label for="peso">Peso:</label>
+            <input class="numero" type="number" name="peso" id="pesopac"  min="0" step="0.5" placeholder="ej: 18"> kg.<br>
+            <label for="deshidrat">Grado de Deshidratación:</label>
+            <input type="range" name="deshidrat" id="dh" min="0" max="12" step="1" list="ticks" value="0">
+            <datalist id="ticks">
+                <option value="0">
+                <option value="2">
+                <option value="4">
+                <option value="6">
+                <option value="8">
+                <option value="10">
+            </datalist><span id="visor"></span><br>
+            <label for="apprev">Aportes previos:</label>
+            <input class="numero" type="number" name="apprev" id="apprevio" size="10" min="0" step="10" placeholder="ej: 300" value=""> ml.<br>
+            <label for="volmanten">Volumen de Mantención:</label>
+            <input class="numero" type="number" name="volmanten" id="volmant" size="10" min="10" max="2000" value="100" step="10"><span id="uvol">
+                <select name="unidvol" id="unidv">
+                    <option value="a">ml/kg/día</option>
+                    <option value="b">ml/m<sup>2</sup>/día</option>
+                </select><span><br>
+            <label for="insulina">Concentración de insulina:</label>
+            <input class="numero" type="number" name="insulina" id="insulin" min="0.02" max="0.1" step="0.01" value="0.1"><span> UI/kg</span><br>
+            <label for="cargagluc">Concentración de glucosa:</label>
+            <input class="numero" type="number" name="cargagluc" id="carga" min="0" max="10" value="0"><span> %</span><br>
+            <label for="potasio">Potasio al ingreso:</label>
+            <input class="numero" type="number" name="potasio" id="ki" min="0.1" max="10.0" step="0.1" value="5" placeholder="ej: 4.5"> <span>mEq/dL.</span><br>
+            <label for="sodio">Concentración de sodio deseada:</label>
+            <input type="number" name="sodio" id="na" min="70" max="150" step="5" value="90" class="numero"><span> mEq/L.</span><br>
+        </form>
+   
+    </section>
+    <section>
+        <div id="resultados">
+            <p>Superficie corporal: <span id="sc"></span> m<sup>2</sup></p><br>
+            <p>Déficit de fluidos: <span id="deffluid"></span> ml</p><br>
+            <p>Aportes primeras 24 horas: <span id="apprimdia"></span> ml</p><br>
+            <p>Aportes segundas 24 horas: <span id="apsegdia"></span> ml</p>
+        </div>
+    </section>
+    <section>
+        <div id="infusiones">
+            <p>Insulina <span id="cantinsul"></span>UI en Suero Fisiológico 50 ml a: <span>1</span> ml/hora [ <span id="concinsul"> </span> ] </p><br>
+            <p>Suero Fisiológico 500 ml + KCL10% <span id="k1"></span>ml a: <span id="drip1"></span> ml/hora</p><br>
+            <p>Suero Glucosado 10% 500 ml + NaCl10% <span id="na1"></span>ml + KCL10% <span id="k2"></span> ml a: <span id="drip2"></span> ml/hora</p><br>
+        </div>
+    </section>
+    <button onclick="printHTML()">Imprimir indicación</button><script>
+        function printHTML() {
+          if (window.print) {
+            window.print();
+          }
+        }
+        </script>
+    <footer>Juan Sepúlveda S. 2021.</footer>
+    <script src="javascript/scripts.js"></script>
+</body>
+</html>
