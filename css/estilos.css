@@ -82,3 +82,8 @@ p{
 footer{
     font-size: x-small;
 }
+.result{
+    background-color: rgb(241, 184, 184);
+    color: blue;
+    font-weight: bold;
+}
