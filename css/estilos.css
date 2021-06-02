@@ -87,3 +87,7 @@ footer{
     color: blue;
     font-weight: bold;
 }
+
+p,ul{
+    border: black 1px solid;
+}
