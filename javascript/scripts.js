@@ -12,15 +12,20 @@ var n = document.getElementById("na");
 
 // Agrega los eventos que gatillaran el recálculo
 window.addEventListener("load",visor);
-pes.addEventListener("change",calcularHoja);
-i.addEventListener("change",calcularHoja);
-cg.addEventListener("change",calcularHoja);
-ap.addEventListener("change",calcularHoja);
-dh.addEventListener("change",calcularHoja);
-vm.addEventListener("change",calcularHoja);
+pes.addEventListener("keyup",calcularHoja);
+i.addEventListener("keyup",calcularHoja);
+cg.addEventListener("keyup",calcularHoja);
+ap.addEventListener("keyup",calcularHoja);
+vm.addEventListener("keyup",calcularHoja);
 u.addEventListener("change",calcularHoja);
-k.addEventListener("change",calcularHoja);
-n.addEventListener("change",calcularHoja);
+k.addEventListener("keyup",calcularHoja);
+n.addEventListener("keyup",calcularHoja);
+
+//Not suported in IE10
+dh.addEventListener("input",calcularHoja);
+dh.addEventListener("input",visor);
+//For IE10
+dh.addEventListener("change",calcularHoja);
 dh.addEventListener("change",visor);
 
 
@@ -70,38 +75,27 @@ function supcorp(peso) {
 
 // Calculo volumen mantencion
 function volMant(peso,sc,unid,volumen) {  
-    switch (unid) {
-        case "a":
-            var volumant = volumen*peso;
-            break;
-        case "b":
-            var volumant = volumen * sc;
-    }
-    return volumant;
+    return (unid == 'a')?volumen*peso:volumen * sc;
 }
 
 // Calculo del deficit de fluidos
 function defFluid(peso,porcentaje) {
-    var defFluido = peso * porcentaje * 10;
-    return defFluido;
+    return peso * porcentaje * 10;
 }
 
 // Calculo de los aportes durante el primer dia
 function aport24h(volMant,aportePrevio,defFluid) {
-    var aportes1 = (volMant - aportePrevio) + defFluid*0.5;
-    return aportes1;
+    return (volMant - aportePrevio) + defFluid*0.5;
 }
 
 // Calculo de los aportes durante el segundo dia
 function aport48h(volMant,defFluid){
-    var aportes2 = volMant+defFluid*0.5;
-    return aportes2;
+    return volMant+defFluid*0.5;
 }
 
 // Calculo de la cantidad de insulina a preparar
 function insulinDrip(ic,peso){
-    var cantIns = ic*50*peso;
-    return cantIns;
+    return ic*50*peso;
 }
 
 
@@ -132,8 +126,6 @@ Maximo a administrar es 4,5 mmol/h (1,5 mL/h K2PO4)*/
 /* Administracion de sodio*/
 
 function sodio(na) {
-    var nacl = na/(2*1.74);
-    return nacl;
-    
+    return na/(2*1.74);
 }
 
