@@ -11,6 +11,10 @@
 <body>
     <header>
         <h1>Asistente para Cetoacidosis Diabética Pediátrica</h1>
+        <hr>
+        <a href="html/ayuda.html"><button>Ayuda</button></a>
+        <a href="#"><button>Guía MINSAL</button></a>
+        <a href="html/ispad2008.html"><button>Guía ISPAD 2018</button></a>
     </header>
     <section class="inicio">
         <div id="inicio">
@@ -19,9 +23,7 @@
             <p>Se encuentra en fase de desarrollo, por lo que no se recomienda su uso como aplicación clínica.</p>
             <p>Las indicaciones en pacientes que presentan una Cetoacidosis diabetica deben ser prescritas por un médico, y revisadas por el equipo de enfermería para garantizar la seguridad de la atención y manejo del paciente.</p>    
         </div>
-        <div class="navegar1"> <a href="html/ayuda.html">Ayuda</a>  </div>
-        <div class="navegar2"> <a href="">Guía MINSAL</a> </div>
-        <div class="navegar3"> <a href="html/ispad2008.html">Guía ISPAD 2018</a> </div>
+        
     </section>
     <section class="calculos">
         <form action="">
@@ -75,13 +77,14 @@
             <p>Suero Glucosado 10% 500 ml + NaCl10% <span id="na1" class="result"></span>ml + KCL10% <span id="k2" class="result"></span> ml a: <span id="drip2" class="result"></span> ml/hora</p><br>
         </div>
     </section>
-    <button onclick="printHTML()">Imprimir indicación</button><script>
+    <button class="PrintBtn" onclick="printHTML()">Imprimir indicación</button>
+    <script>
         function printHTML() {
           if (window.print) {
             window.print();
           }
         }
-        </script>
+    </script>
     <footer>Juan Sepúlveda S. 2021.
          <a href="mailto:jrsepulv@gmail.com">Comentarios, sugerencias u otros favor enviar al autor.</a>
     </footer>

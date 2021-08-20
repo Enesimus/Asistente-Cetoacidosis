@@ -23,6 +23,9 @@ header{
     font-size: 90%;
     text-align: center;
 }
+header button {
+    width: 20%;
+}
 label {
     padding: 10px;
     width: 200px;
@@ -39,7 +42,7 @@ datalist{
 }
 
 #infusiones{
-    border: blue solid 1.5px;
+    border: firebrick solid 1.5px;
     padding-left: 10px;
     display: inline-flexbox;
     margin: 1px;
@@ -49,6 +52,7 @@ datalist{
 html{
     font-family: Arial, Helvetica, sans-serif;
     width: 850px;
+    margin:auto;
 }
 
 input{
@@ -57,9 +61,10 @@ input{
 p{
     display: flex;
     width: 800px;
+    margin: 0px;
 }
 #resultados{
-    border: solid blue 1px;
+    border: solid firebrick 1px;
     display: inline-flexbox;
     margin: 1px;
     font-size: 85%;
@@ -87,7 +92,7 @@ footer{
     color: blue;
     font-weight: bold;
 }
-
-p,ul{
-    border: black 1px solid;
+.PrintBtn {
+    float: right;
+    margin-right: 10px;
 }
